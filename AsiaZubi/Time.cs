@@ -146,8 +146,13 @@ namespace AsiaZubi
 
         public Time Plus (byte hour , byte minute , byte second, long millisecond)
         {
-            Time obiekt1 = new Time();
-            
+            var secondsToAdd = (hour * 60 + minute) * 60 + second * 1000 + millisecond;
+            var actualSeconds = this.Zwracanie_milisekund();
+
+            actualSeconds += secondsToAdd;
+            return FromMiliseconds(actualSeconds);
+
+
         }
 
         //public Time Minus(TimePeriod)
